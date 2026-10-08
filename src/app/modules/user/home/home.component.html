@@ -1,0 +1,49 @@
+<app-hero [upcomingMovies]="upcomingMovies()?.results?.slice(0, 8)" />
+
+@defer (on viewport) {
+<app-trending-now />
+}@placeholder {
+<app-explore-content-loading>
+  <app-slider class="block my-10">
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <app-card-loading />
+    }
+  </app-slider>
+</app-explore-content-loading>
+}
+
+@defer (on viewport) {
+<app-top-rating-movies />
+}@placeholder {
+<app-explore-content-loading>
+  <app-slider class="block my-10">
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <app-card-loading />
+    }
+  </app-slider>
+</app-explore-content-loading>
+}
+
+@defer (on viewport) {
+<app-popular-people />
+}@placeholder {
+<app-explore-content-loading>
+  <app-slider class="block my-10">
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <app-rounded-card-loading />
+    }
+  </app-slider>
+</app-explore-content-loading>
+}
+
+@defer (on viewport) {
+<app-top-rating-tv />
+}@placeholder {
+<app-explore-content-loading>
+  <app-slider class="block my-10">
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <app-card-loading />
+    }
+  </app-slider>
+</app-explore-content-loading>
+}

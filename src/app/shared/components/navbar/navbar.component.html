@@ -1,0 +1,56 @@
+<header class="fixed top-0 left-0 w-full z-50 bg-primary-dark text-muted">
+  <div class="my-container mx-auto py-4 centered-vertical gap-4">
+    <a routerLink="/" class="centered-vertical gap-2">
+      <app-icon name="logo" width="1.8rem"></app-icon>
+      <h2 class="header text-primary-white text-2xl font-semibold uppercase tracking-wide">CineScope</h2>
+    </a>
+
+    <app-list label="Movies">
+      <app-link linkTo="/list" text="All movies" bgColorHover="#1f1f28" otherClasses="block" textColorHover="#fff" />
+      <app-link linkTo="/trending" text="Trending" bgColorHover="#1f1f28" otherClasses="block" textColorHover="#fff" />
+      <app-link linkTo="/trending" text="Most popular movies" bgColorHover="#1f1f28" otherClasses="block mb-2"
+        textColorHover="#fff" />
+
+      <div class="pt-4 border-t border-muted">
+        <h4 class="text-sm px-4 font-medium mb-2 text-muted uppercase">By genre</h4>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+          @for (genre of movieGenres(); track genre.id) {
+          <app-link linkTo="/trending" [text]="genre.name" bgColorHover="#1f1f28" otherClasses="block"
+            textColorHover="#fff" />
+          }
+        </div>
+      </div>
+    </app-list>
+
+    <app-list label="Tv Shows">
+      <app-link linkTo="/list" text="All tv show" bgColorHover="#1f1f28" otherClasses="block" textColorHover="#fff" />
+      <app-link linkTo="/trending" text="Trending" bgColorHover="#1f1f28" otherClasses="block" textColorHover="#fff" />
+      <app-link linkTo="/trending" text="Most popular tv show" bgColorHover="#1f1f28" otherClasses="block mb-2"
+        textColorHover="#fff" />
+
+      <div class="pt-4 border-t border-muted">
+        <h4 class="text-sm px-4 font-medium mb-2 text-muted uppercase">By genre</h4>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 items-center">
+          @for (genre of tvGenres(); track genre.id) {
+          <app-link linkTo="/trending" [text]="genre.name" bgColorHover="#1f1f28" otherClasses="block"
+            textColorHover="#fff" />
+          }
+        </div>
+      </div>
+    </app-list>
+
+    <app-search class="flex-1" />
+
+    <app-link linkTo="/login" otherClasses="centered-vertical gap-2" textColor="#f0eeea" textColorHover="#f0eeea"
+      bgColorHover="#1f1f28">
+      <app-icon name="login" width="1.2rem" height="1.2rem" color="#f0eeea" />
+      <span>Sign in</span>
+    </app-link>
+
+    <app-link linkTo="/register" otherClasses="centered-vertical gap-2 font-medium" textColor="#0a0a10"
+      textColorHover="#0a0a10" bgColor="#f5a623" bgColorHover="#d98d12">
+      <app-icon name="register" width="1.2rem" height="1.2rem" color="#0a0a10" />
+      <span>Join free</span>
+    </app-link>
+  </div>
+</header>

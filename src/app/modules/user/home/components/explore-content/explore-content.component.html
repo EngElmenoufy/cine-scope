@@ -1,0 +1,12 @@
+<section class="my-16 my-container">
+  <a [routerLink]="linkTo()" class="cursor-pointer block w-fit group" (mouseenter)="isHover.set(true)"
+    (mouseleave)="isHover.set(false)">
+    <h3 class="header pl-4 text-3xl font-bold centered-vertical gap-2 w-fit">{{label()}}
+      <app-icon class="transition-transform group-hover:translate-x-2" name="arrow-right" width="1.2rem" height="1.2rem"
+        [color]="isHover() ? '#f5a623' : '#f0eeea'" />
+    </h3>
+  </a>
+  <ng-content select="[paragraph]" />
+
+  <ng-content />
+</section>

@@ -1,0 +1,6 @@
+<button type="button" [style.padding-inline]="paddingX()" [style.padding-block]="paddingY()"
+  [style.border-radius]="borderRadius()" [style.background-color]="isHovering() ? bgColorHover() : bgColor()"
+  [style.color]="isHovering() ? textColorHover() : textColor()" [class]="'cursor-pointer transition ' + otherClasses()"
+  (mouseenter)="isHovering.set(true)" (mouseleave)="isHovering.set(false)">
+  <ng-content />
+</button>

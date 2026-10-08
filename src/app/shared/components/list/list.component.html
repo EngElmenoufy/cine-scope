@@ -1,0 +1,14 @@
+<div class="relative text-sm md:text-base text-primary-white">
+  <app-button bgColorHover="#1f1f28" [otherClasses]="'centered-vertical gap-1 ' + (isClicked() && 'bg-[#1f1f28]!')"
+    (click)="toggleClick()" (mouseenter)="isHovered.set(true)" (mouseleave)="isHovered.set(false)">
+    <span>{{label()}}</span>
+    <app-icon name="arrow-down" width="1.5rem" height="1.5rem" [color]="isHovered() || isClicked() ? '#fff' :'#f0eeea'"
+      class="transition-transform" [class.rotate-180]="isClicked()" />
+  </app-button>
+
+  @if (isClicked()) {
+  <div class="absolute top-full mt-2 left-0 z-30 bg-surface p-2 rounded-lg shadow-lg w-72 md:w-110">
+    <ng-content />
+  </div>
+  }
+</div>

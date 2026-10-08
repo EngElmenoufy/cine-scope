@@ -1,0 +1,13 @@
+<app-explore-content label="Popular people">
+  <app-slider class="block my-10">
+    @if (isLoading()) {
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <app-rounded-card-loading />
+    }
+    }@else {
+    @for (item of popularPeople(); track item.id) {
+    <app-rounded-card [data]="item" />
+    }
+    }
+  </app-slider>
+</app-explore-content>

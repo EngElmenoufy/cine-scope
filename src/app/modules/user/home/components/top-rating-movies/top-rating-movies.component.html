@@ -1,0 +1,13 @@
+<app-explore-content label="Top rating movies">
+  <app-slider class="block my-10">
+    @if (isLoading()) {
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <app-card-loading />
+    }
+    }@else {
+    @for (item of topRatingMovies(); track item.id) {
+    <app-card [data]="item" type="movie" />
+    }
+    }
+  </app-slider>
+</app-explore-content>

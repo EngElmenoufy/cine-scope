@@ -1,0 +1,11 @@
+<a [routerLink]="linkTo()" [routerLinkActive]="activeClasses()" [style.padding-inline]="paddingX()"
+  [style.padding-block]="paddingY()" [style.border-radius]="borderRadius()"
+  [style.background-color]="isHovering() ? bgColorHover() : bgColor()"
+  [style.color]="isHovering() ? textColorHover() : textColor()" [class]="'cursor-pointer transition ' + otherClasses()"
+  (mouseenter)="isHovering.set(true)" (mouseleave)="isHovering.set(false)">
+  @if (text()) {
+  {{ text() }}
+  }@else {
+  <ng-content />
+  }
+</a>

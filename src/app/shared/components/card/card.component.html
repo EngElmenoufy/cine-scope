@@ -1,0 +1,25 @@
+<a [routerLink]="'trending'" class="relative block w-48 group bg-surface rounded-lg overflow-hidden h-full">
+  <span
+    class="absolute top-2 right-2 py-0.5 px-3 opacity-100 text-primary-dark  bg-primary text-sm rounded-lg z-10 uppercase">{{data().media_type
+    ?? type()}}</span>
+  <div class="h-80 overflow-hidden">
+    <img [src]="imageUrl()" [alt]="name()"
+      class="w-full h-full object-center object-cover group-hover:scale-110 group-hover:opacity-80 transition">
+  </div>
+
+  <div class="px-2 py-4">
+    <!-- <div class="flex flex-col justify-between"> -->
+    <span class="text-sm font-medium mb-1 text-muted-light centered-vertical gap-2">
+      <app-icon name="star" width="1.2rem" height="1.2rem" color="#f5a623" />
+      {{data().vote_average | number:'1.1-1'}}</span>
+    <h5 class="line-clamp-2">{{data().title ?? data().name}}</h5>
+    <span class="text-sm text-muted">{{(data().release_date ?? data().first_air_date) |
+      date:"YYYY" | roundWith:"(":")"}}</span>
+
+    <!-- <app-button class="block mt-4" otherClasses="w-full" paddingY="0.2rem" bgColor="#f5a623" bgColorHover="#d98d12"
+      textColor="#0a0a10" textColorHover="#0a0a10">
+      <span>test</span>
+    </app-button> -->
+    <!-- </div> -->
+  </div>
+</a>

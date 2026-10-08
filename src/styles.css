@@ -1,1 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  /* Primary (brand) */
+  --color-primary: #f5a623;
+  --color-primary-hover: #ffb93d;
+  --color-primary-dark: #d98d12;
+
+  /* Surface — cards, panels, modals, inputs */
+  --color-surface: #13131c;
+  --color-surface-hover: #1a1a26;
+  /* --color-surface-dark: #0a0a10; */
+
+  /* Sidebar — structurally distinct from surface, own single tone */
+  --color-sidebar: #0f0f18;
+  /* Text */
+  --color-primary-white: #f0eeea;
+  --color-muted-light: #bbb9bc;
+  --color-muted: #7a7880;
+  --color-primary-dark: #0a0a10;
+
+  /* Border */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.16);
+
+  /* States */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #e53e3e;
+  --color-info: #3b82f6;
+
+  /* Focus */
+  --color-focus: #f5a623;
+
+  /* Switch */
+  --color-switch: #2e2e3e;
+
+  /* Radius */
+  --radius: 0.4rem;
+}
+
+@layer components {
+  .my-container {
+    @apply px-4 md:px-6;
+  }
+
+  .centered {
+    @apply flex items-center justify-center;
+  }
+
+  .centered-horizontal {
+    @apply flex justify-center;
+  }
+  .centered-vertical {
+    @apply flex items-center;
+  }
+}
+
+.header {
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.05rem;
+  /* font-weight: 400; */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  @apply bg-primary-dark text-primary-white;
+}
+
+/* 1. Global rules for modern browsers */
+html {
+  scrollbar-color: var(--color-primary) var(--color-primary-dark); /* thumb track */
+  scrollbar-width: thin; /* MUST be auto, thin, or none */
+}
+
+/* 2. Global rules for WebKit engines */
+::-webkit-scrollbar {
+  width: 0.5rem; /* Custom pixel width works here */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 5px;
+}

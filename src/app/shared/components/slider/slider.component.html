@@ -1,0 +1,19 @@
+<div class="relative">
+  <div #track [class.no-scrollbar]="!hasScrollbar()" [class.justify-center]="!hasScroll() && isCentered()"
+    class="overflow-x-auto scroll-smooth flex gap-4">
+    <span #startSentinel class="w-px shrink-0" aria-hidden="true"></span>
+    <ng-content />
+    <span #endSentinel class="w-px shrink-0" aria-hidden="true"></span>
+  </div>
+
+  @if (hasScroll()) {
+  <button (click)="scrollLeft()" [class.hidden]="isBtnLeftDisabled()"
+    class="absolute top-1/2 start-2 sm:start-4 -translate-y-1/2 rounded-full bg-gray-600 hover:bg-gray-700 transition-colors shadow-lg hover:shadow-xl size-12 centered cursor-pointer">
+    <app-icon name="arrow-left" color="#f0eeea" width="1.1rem" height="1.1rem" />
+  </button>
+  <button (click)="scrollRight()" [class.hidden]="isBtnRightDisabled()"
+    class="absolute top-1/2 end-2 sm:end-4 -translate-y-1/2 bg-gray-600 hover:bg-gray-700 transition-colors shadow-lg hover:shadow-xl rounded-full size-12 centered cursor-pointer">
+    <app-icon name="arrow-right" color="#f0eeea" width="1.1rem" height="1.1rem" />
+  </button>
+  }
+</div>

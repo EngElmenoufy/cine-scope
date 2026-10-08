@@ -1,0 +1,13 @@
+.header {
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.15rem;
+  height: 100%;
+  background-color: var(--color-primary);
+}

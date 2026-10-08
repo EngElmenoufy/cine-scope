@@ -1,0 +1,24 @@
+<div class="relative">
+  <app-icon name="search" width="1.5rem" height="1.5rem" color="#0a0a10"
+    class="absolute top-1/2 left-2 -translate-y-1/2" />
+  <input type="text" class="py-2 pl-10 pr-4 text-primary-dark bg-primary-white rounded-lg outline-primary w-full"
+    placeholder="search..." [formControl]="searchControl" (input)="onSearch()" (click)="onSearch()">
+
+  @if (isListOpened()) {
+  <div class="absolute top-full mt-2 left-0 w-full max-h-96 overflow-y-auto rounded-lg p-2 shadow-lg bg-surface z-30">
+    @for(item of list(); track item.id) {
+    @if (item.name || item.original_name) {
+    <app-link linkTo="/trending" bgColorHover="#1f1f28" otherClasses="centered-vertical gap-4" textColorHover="#fff">
+      <picture class="w-12 rounded-lg overflow-hidden">
+        <img [src]="generateImageUrl(item.poster_path)" [alt]="item.name" class="object-center object-cover">
+      </picture>
+      <div>
+        <h5 class="font-medium text-primary-white">{{item.name ?? item.original_name}}</h5>
+        <p>{{item.media_type}} {{(item.release_date ?? item.first_air_date) | date:"YYYY" | roundWith:"(":")"}}</p>
+      </div>
+    </app-link>
+    }
+    }
+  </div>
+  }
+</div>
